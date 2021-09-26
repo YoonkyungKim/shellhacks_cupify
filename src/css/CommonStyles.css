@@ -1,0 +1,106 @@
+* {
+    font-family: "Poppins";
+}
+
+.section {
+    margin-bottom: 50px;
+}
+
+.game-step-box {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+.game-step-title {
+    margin-bottom: 30px;
+}
+
+.common-card {
+    height: 300px;
+    padding: 5rem 2rem;
+    margin-right: 18px;
+    border-radius: 0.5em;
+    text-align: center;
+    display: inline;
+    border-width: 15px;
+}
+
+.price-card {
+    height: 85px;
+    padding: 1rem 10rem;
+    margin-right: 18px;
+    margin-bottom: 20px;
+    border-radius: 5em;
+    text-align: center;
+}
+
+.white-card {
+    display: inline;
+    color: #111111;
+    background-color: #ffffff;
+    border: 7px solid #111111;
+}
+
+.white-card-grey-border {
+    display: inline;
+    color: #a0a0a0;
+    background-color: #efefef;
+    border: 7px solid #a0a0a0;
+}
+
+.white-card-green-border {
+    display: inline;
+    color: #96bf47;
+    background-color: #ffffff;
+    border: 7px solid #96bf47;
+}
+
+.green-card {
+    color: #96bf47;
+    background-color: #ecfeca;
+    border: 7px solid #96bf47;
+}
+
+.green-card-pressed {
+    color: #96bf47;
+    background-color: #ecfeca;
+    border: 7px solid #96bf47;
+}
+
+.common-btn {
+    padding: 0.7rem 1.4rem;
+    margin-right: 10px;
+    border-radius: 0.2em;
+}
+
+.green-btn {
+    color: #ffffff;
+    background-color: #5e8e3e;
+    border: 1.5px solid #5e8e3e;
+}
+
+.white-btn-green-border {
+    background-color: #ffffff;
+    color: #5e8e3e;
+    border: 1.5px solid #5e8e3e;
+}
+
+.white-btn-black-border {
+    background-color: #ffffff;
+    color: #111111;
+    border: 1.5px solid #111111;
+}
+
+.black-btn {
+    background-color: #111111;
+    color: #ffffff;
+    border: 1.5px solid #111111;
+}
+
