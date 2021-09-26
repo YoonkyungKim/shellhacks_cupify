@@ -17,19 +17,23 @@ function OrderReviewPage({location}) {
     useEffect(() => {
         // console.log("location: " + JSON.stringify(location))
         console.log(orderNum);
+        if (selectedCup && selectedPackage){
+            const finalPrice = location.state.finalPrice;
+            const profit = finalPrice - selectedCup.price - selectedPackage.price;
+            dispatch(addProfit(profit));
+            dispatch(addRating(thisRoundRating));
+
+            if (location.state.price === "cheap"){
+                dispatch(updateThisRoundRating(0.1));
+            } else if (location.state.price === "expensive"){
+                dispatch(updateThisRoundRating(-1.0));
+            }
+        }
     }, []);
 
     if (selectedCup && selectedPackage){
         const finalPrice = location.state.finalPrice;
         const profit = finalPrice - selectedCup.price - selectedPackage.price;
-        dispatch(addProfit(profit));
-        dispatch(addRating(thisRoundRating));
-
-        if (location.state.price === "cheap"){
-            dispatch(updateThisRoundRating(0.1));
-        } else if (location.state.price === "expensive"){
-            dispatch(updateThisRoundRating(-1.0));
-        }
 
         if (location.state.orderCompleted){
             return (
