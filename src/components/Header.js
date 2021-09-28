@@ -2,25 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/Header.css';
 import '../css/CommonStyles.css';
+import logo from '../img/logo-horizontal-black.png';
+import logoWhite from '../img/logo-horizontal-white.png';
 
-function Header({name, price}) {
+function Header({font}) {
   return (
     <header className="header">
-        <div className="container header-container">
+        <div className="header-container">
             <div className="row">
                 <div className="header-left-container col-6">
                     <Link to="/">
-                        <img src="" alt="cupify logo" />
-                        <span>Cupify</span>
+                        <img className="logo" src={font === 'white' ? logoWhite : logo} alt="cupify logo" />
                     </Link>
-                </div>
-                <div className="header-right-container col-6">
-                    <div className="language-container">
-                        <a className="language" href="#">Français</a>
-                    </div>
-
-                    <button className="white-btn-black-border common-btn">Join Now</button>
-                    <button className="black-btn common-btn">Sign In</button>
                 </div>
             </div>
         </div>

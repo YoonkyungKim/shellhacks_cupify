@@ -8,6 +8,7 @@ import StartCountdownPage from "./pages/StartCountdownPage";
 import OrderReviewPage from "./pages/OrderReviewPage";
 import GameResultPage from "./pages/GameResultPage";
 import RankingPage from "./pages/RankingPage";
+import ShippingPage from "./pages/ShippingPage";
 
 function App() {
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/order-review' component={OrderReviewPage}/>
         <Route path='/game-result' component={GameResultPage}/>
         <Route path='/ranking' component={RankingPage}/>
+        <Route path='/shipping' component={ShippingPage}/>
       </Switch>
     </div>
   );
