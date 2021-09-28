@@ -14,7 +14,7 @@ function GameResultPage({location}) {
     
     dispatch(resetOrderNum());
 
-    if (averageRating > 4.5){
+    if (averageRating >= 4.5){
         return (
             <div>
                 <Header />
@@ -22,13 +22,13 @@ function GameResultPage({location}) {
                     <h1>Congratulations!</h1>
                     <h3>You passed the game.<br/>
                     Now, you are ready to become a super seller at Shopify!</h3>
-                    <p>Average rating: ⭐️{averageRating}</p>
+                    <p>Average rating: ⭐️{(Math.round( averageRating * 10 ) / 10).toFixed(1)}</p>
                     <p>Total profit: ${totalMoney - 80}</p>
                     <Link to="/ranking"
                         onClick={() => {
                             dispatch(resetRatings());
                         }}>
-                        <button>Ranking</button>
+                        <button className="common-btn green-btn">Ranking</button>
                     </Link>
                 </div>
             </div>
@@ -50,7 +50,7 @@ function GameResultPage({location}) {
                         onClick={() => {
                             dispatch(resetRatings());
                         }}>
-                        <button>Try again</button>
+                        <button className="common-btn green-btn">Try again</button>
                     </Link>
                 </div>
             </div>

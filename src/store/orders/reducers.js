@@ -114,15 +114,21 @@ function reducer(state=defaultState, action) {
             console.log(ObjWithNewSelections);
             return [ObjWithNewSelections];
         case ADD_PROFIT:
-            console.log(state[0].totalMoney);
-            console.log("action.profit" + action.profit);
+            console.log("total money: " + state[0].totalMoney);
+            console.log("action.profit: " + action.profit);
             const ObjWithUpdatedMoney = {...state[0], totalMoney: state[0].totalMoney + action.profit};
+            console.log("total money updated: " + ObjWithUpdatedMoney.totalMoney);
             return [ObjWithUpdatedMoney];
         case UPDATE_THIS_ROUND_RATING:
             console.log("thisRoundRating" + state[0].thisRoundRating);
             console.log("action.changedRating" + action.changedRating);
-            const ObjWithUpdatedRating = {...state[0], thisRoundRating: state[0].thisRoundRating + action.changedRating};
-            return [ObjWithUpdatedRating];
+            if (state[0].thisRoundRating + action.changedRating <= 5.0){
+                const ObjWithUpdatedRating = {...state[0], thisRoundRating: state[0].thisRoundRating + action.changedRating};
+                return [ObjWithUpdatedRating];
+            }else {
+                const ObjWithMaxRating = {...state[0], thisRoundRating: 5.0};
+                return [ObjWithMaxRating];
+            }
         case RESET_ROUND_RATING:
                 const ObjWithInitialRating = {...state[0], thisRoundRating: 5.0};
                 return [ObjWithInitialRating];

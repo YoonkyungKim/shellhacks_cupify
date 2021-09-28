@@ -13,9 +13,11 @@ function SelectionCard({name, img, price, link}) {
         //       onClick={() => {
         //         dispatch(addSelections({name: name, img: img, price: price})); 
         //       }}>
-            <button className="col-2 common-card">
+            <button className="col-2 common-card white-card-green-border">
                 <p>{name}</p>
-                <img src={img} alt={name}/>
+                <div className="img-box">
+                  <img style={{height: "100%"}} src={img} alt={name}/>
+                </div>
                 <p>${price}</p>
             </button>
         // </Link>

@@ -2,8 +2,63 @@
     font-family: "Poppins";
 }
 
+html body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
 .section {
     margin-bottom: 50px;
+}
+
+.welcome-section {
+    margin-top: 50px;
+}
+
+html, body, .shipping-img, .background-img {
+    height: 100%;
+}
+
+.shipping-img {
+    background-image: url(../img/parachute-cupify-padded-mailer.png);
+    /* no-repeat center center fixed */
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background-img {
+    background-image: url(../img/background.png);
+    max-width: 100% !important;
+}
+
+h2 {
+    font-weight: 700 !important; 
+    font-size: 3em !important;
+    line-height: 1.4em !important;
+}
+
+h3 {
+    font-weight: 700 !important; 
+    font-size: 2em !important;
+    line-height: 1.4em !important;
+}
+
+h4 {
+    font-weight: 600 !important; 
+    font-size: 1.4em !important;
+    line-height: 1.4em !important;
+}
+
+.start-countdown-font {
+    font-weight: 700 !important; 
+    font-size: 5.5em !important;
+}
+
+.desc {
+    line-height: 1.6em;
 }
 
 .game-step-box {
@@ -29,7 +84,7 @@
     border-radius: 0.5em;
     text-align: center;
     display: inline;
-    border-width: 15px;
+    border-width: 10px;
 }
 
 .price-card {
@@ -78,6 +133,8 @@
     padding: 0.7rem 1.4rem;
     margin-right: 10px;
     border-radius: 0.2em;
+    font-size: 1.2em;
+    font-weight: 500;
 }
 
 .green-btn {
@@ -104,3 +161,62 @@
     border: 1.5px solid #111111;
 }
 
+.img-box {
+    align-items:center;
+    justify-content:center;
+    display:flex;
+    width: 80%;
+    display: table;
+    /* overflow: hidden; */
+}
+
+.white-text {
+    color: "#ffffff" !important;
+}
+
+.green-text {
+    color: "#96bf47" !important;
+}
+
+.counter-external-container {
+    display: inline;
+}
+
+.counter-container {
+    color: #EB5757;
+    background-color: #ffffff;
+    border-radius: 5rem;
+    width: 170px;
+    text-align: center; 
+    display: table;
+    /* vertical-align: center; */
+    position: relative;
+}
+/* 
+.counter-container h3 {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  } */
+
+.game-steps-inside-container {
+    padding: 0 19%;
+}
+.game-step-card-box {
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 10% !important;
+    margin-bottom: 80px;
+}
+
+/* .game-step-img-box {
+    margin: 0 auto;
+    width: 100%;
+} */
+/* 
+align-items:center;
+    justify-content:center;
+    display:flex;
+    width: 100%;
+    overflow: hidden; */
