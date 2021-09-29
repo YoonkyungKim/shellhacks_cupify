@@ -34,69 +34,71 @@ function OrderReviewPage({location}) {
     }, []);
 
     if (location.state){
-        if (location.state.previousSteps){
-            // if (selectedCup && selectedPackage){
-                if (location.state.orderCompleted){
-                    const finalPrice = location.state.finalPrice;
-                    const profit = finalPrice - selectedCup.price - selectedPackage.price;
-                    return (
+        if (location.state.orderCompleted){
+            const finalPrice = location.state.finalPrice;
+            const profit = finalPrice - selectedCup.price - selectedPackage.price;
+            return (
+                <div>
+                    <Header />
+                    <div className="container">
+                        <h1>Order Review [{orderNum} /10]</h1>
                         <div>
-                            <Header />
-                            <div className="container">
-                                <h1>Order Review [{orderNum} /10]</h1>
-                                <div>
-                                    <span>Profit: ${finalPrice} - ${selectedCup.price} - ${selectedPackage.price} = ${profit}</span>
-                                </div>
-                
-                                <div>
-                                    <img src="" alt=""/><span>{20 - timeRemained} sec</span>
-                                </div>
-                
-                                <div>
-                                    <img src="" alt=""/><span>{(Math.round( thisRoundRating * 10 ) / 10).toFixed(1)}</span>
-                                </div>
-                                <Link to={{
-                                        pathname: `${orderNum === 10 ? "/game-result" : "/cup-selection"}`,
-                                    }}
-                                    onClick={() => {
-                                        dispatch(resetSelections());
-                                        dispatch(resetTimeRemained());
-                                        dispatch(resetRoundRating());
-                                        dispatch(resetSelections());
-                                    }}>
-                                    <button>{orderNum === 10 ? "View the result" : "Start next order"}</button>
-                                </Link>
-                            </div>
+                            <span>Profit: ${finalPrice} - ${selectedCup.price} - ${selectedPackage.price} = ${profit}</span>
                         </div>
-                    );   
-                } else {
-                    return (
+        
                         <div>
-                            <Header />
-                            <div className="container">
-                                <h1>Order Review [{orderNum} /10]</h1>
-                                <p>Order failed.</p>
-                                <Link to={{
-                                        pathname: `${orderNum === 10 ? "/game-result" : "/cup-selection"}`,
-                                    }}
-                                    onClick={() => {
-                                        dispatch(resetSelections());
-                                        dispatch(resetTimeRemained());
-                                        dispatch(resetRoundRating());
-                                        dispatch(resetSelections());
-                                    }}>
-                                    <button>{orderNum === 10 ? "View the result" : "Start next order"}</button>
-                                </Link>
-                            </div>
+                            <img src="" alt=""/><span>{20 - timeRemained} sec</span>
                         </div>
-                    );   
-                }
-            // }
+        
+                        <div>
+                            <img src="" alt=""/><span>{(Math.round( thisRoundRating * 10 ) / 10).toFixed(1)}</span>
+                        </div>
+                        <Link to={{
+                                pathname: `${orderNum === 10 ? "/game-result" : "/cup-selection"}`,
+                            }}
+                            onClick={() => {
+                                dispatch(resetSelections());
+                                dispatch(resetTimeRemained());
+                                dispatch(resetRoundRating());
+                                dispatch(resetSelections());
+                            }}>
+                            <button>{orderNum === 10 ? "View the result" : "Start next order"}</button>
+                        </Link>
+                    </div>
+                </div>
+            );   
+        } else {
+            if (location.state.previousSteps){
+                return (
+                    <div>
+                        <Header />
+                        <div className="container">
+                            <h1>Order Review [{orderNum} /10]</h1>
+                            <p>Order failed.</p>
+                            <Link to={{
+                                    pathname: `${orderNum === 10 ? "/game-result" : "/cup-selection"}`,
+                                }}
+                                onClick={() => {
+                                    dispatch(resetSelections());
+                                    dispatch(resetTimeRemained());
+                                    dispatch(resetRoundRating());
+                                    dispatch(resetSelections());
+                                }}>
+                                <button>{orderNum === 10 ? "View the result" : "Start next order"}</button>
+                            </Link>
+                        </div>
+                    </div>
+                );   
+            } else {
+                return (
+                    <Redirect to="/" />
+                );
+            }
         }
     } else {
         return (
             <Redirect to="/" />
-        )
+        );
     }
 }
 
