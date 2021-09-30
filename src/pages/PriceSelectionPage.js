@@ -18,34 +18,37 @@ function PriceSelectionPage({location}) {
 
     useEffect(() => {
         console.log("location: " + JSON.stringify(location))
-        setCounter(location.state.counter);
-        if (selectedPackage.name === 'Biodegradable cornstarch mailers'){
-            dispatch(updateThisRoundRating(0.1));
-        }
-    
-        if (selectedCup.name === 'Plastic'){
-            if (selectedPackage.name !== 'Biodegradable cornstarch mailers'){
-                dispatch(updateThisRoundRating(-0.3));
+        if (location.state){
+            setCounter(location.state.counter);
+
+            if (selectedPackage.name === 'Biodegradable cornstarch mailers'){
+                dispatch(updateThisRoundRating(0.1));
             }
-        } else if (selectedCup.name === 'Reusable'){
-            if (selectedPackage.name !== 'Biodegradable cornstarch mailers'){
-                dispatch(updateThisRoundRating(-0.3));
-            }
-        } else if (selectedCup.name === 'Cupify brand'){
-            if (selectedPackage.name !== 'Cupify padded mailers'){
-                dispatch(updateThisRoundRating(-0.3));
-            }
-        } else if (selectedCup.name === 'Glass'){
-            if (selectedPackage.name === 'Cupify padded mailers'){
-                dispatch(updateThisRoundRating(-0.3));
-            } else if (selectedPackage.name === 'Biodegradable cornstarch mailers'){
-                dispatch(updateThisRoundRating(-2.0));
-            }
-        } else if (selectedCup.name === 'Teacup set'){
-            if (selectedPackage.name === 'Cupify padded mailers'){
-                dispatch(updateThisRoundRating(-0.3));
-            } else if (selectedPackage.name === 'Biodegradable cornstarch mailers'){
-                dispatch(updateThisRoundRating(-2.0));
+
+            if (selectedCup.name === 'Plastic'){
+                if (selectedPackage.name !== 'Biodegradable cornstarch mailers'){
+                    dispatch(updateThisRoundRating(-0.3));
+                }
+            } else if (selectedCup.name === 'Reusable'){
+                if (selectedPackage.name !== 'Biodegradable cornstarch mailers'){
+                    dispatch(updateThisRoundRating(-0.3));
+                }
+            } else if (selectedCup.name === 'Cupify brand'){
+                if (selectedPackage.name !== 'Cupify padded mailers'){
+                    dispatch(updateThisRoundRating(-0.3));
+                }
+            } else if (selectedCup.name === 'Glass'){
+                if (selectedPackage.name === 'Cupify padded mailers'){
+                    dispatch(updateThisRoundRating(-0.3));
+                } else if (selectedPackage.name === 'Biodegradable cornstarch mailers'){
+                    dispatch(updateThisRoundRating(-2.0));
+                }
+            } else if (selectedCup.name === 'Teacup set'){
+                if (selectedPackage.name === 'Cupify padded mailers'){
+                    dispatch(updateThisRoundRating(-0.3));
+                } else if (selectedPackage.name === 'Biodegradable cornstarch mailers'){
+                    dispatch(updateThisRoundRating(-2.0));
+                }
             }
         }
     }, []);
@@ -63,7 +66,8 @@ function PriceSelectionPage({location}) {
             state: { orderCompleted: false, previousSteps: true }
           }}/>
         )
-    } else {
+    } 
+
         if (selectedCup && selectedPackage){
             return (
                 <div className="container game-step-box">
@@ -135,7 +139,7 @@ function PriceSelectionPage({location}) {
                 <Redirect to="/" />
             )
         }
-    }    
+    
 }
 
 export default PriceSelectionPage;

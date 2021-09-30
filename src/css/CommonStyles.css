@@ -52,9 +52,31 @@ h4 {
     line-height: 1.4em !important;
 }
 
+.font-white {
+    color: #ffffff;
+}
+
+.inline {
+    display: inline;
+}
+
 .start-countdown-font {
     font-weight: 700 !important; 
     font-size: 5.5em !important;
+}
+
+.status-bar {
+    margin: 50px !important;
+}
+
+.status-bar-right {
+    /* margin-left: 5%; */
+    text-align: right;
+}
+
+.status-icon {
+    margin-right: 10px;
+    margin-bottom: 5px;
 }
 
 .desc {
@@ -75,16 +97,30 @@ h4 {
 
 .game-step-title {
     margin-bottom: 30px;
+    text-align: center;
+}
+
+.card-container {
+    text-align: center;
 }
 
 .common-card {
     height: 300px;
-    padding: 5rem 2rem;
+    padding: 2rem;
     margin-right: 18px;
     border-radius: 0.5em;
     text-align: center;
     display: inline;
     border-width: 10px;
+    /* text-decoration: none; */
+}
+
+.card-text {
+    text-decoration: none !important;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-bottom: 3px;
 }
 
 .price-card {
@@ -162,6 +198,8 @@ h4 {
 }
 
 .img-box {
+    height: 200px;
+    margin: 0 auto;
     align-items:center;
     justify-content:center;
     display:flex;

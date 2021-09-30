@@ -15,7 +15,8 @@ function PackageSelectionPage({location}) {
 
     useEffect(() => {
         console.log("location: " + JSON.stringify(location))
-        setCounter(location.state.counter);
+        
+        location.state && setCounter(location.state.counter);
     }, []);
 
     useEffect(() => {
@@ -28,7 +29,10 @@ function PackageSelectionPage({location}) {
         return (
           <Redirect to={{
             pathname: "/order-review",
-            state: { orderCompleted: false, previousSteps: true }
+            state: { 
+                orderCompleted: false, 
+                previousSteps: true 
+            }
           }}/>
         )
     } else {
@@ -50,7 +54,10 @@ function PackageSelectionPage({location}) {
                         <div>
                             <Link to={{
                                 pathname: "/price-selection",
-                                state: { counter: counter }
+                                state: { 
+                                    counter: counter,
+                                    previousSteps: true
+                                }
                             }} 
                                 onClick={() => {
                                 dispatch(addSelections({name: "Cupify padded mailer", img: cupifyPaddedMailer, price: 2})); 
@@ -63,7 +70,10 @@ function PackageSelectionPage({location}) {
                             </Link>
                             <Link to={{
                                 pathname: "/price-selection",
-                                state: { counter: counter }
+                                state: { 
+                                    counter: counter,
+                                    previousSteps: true
+                                }
                             }} 
                                 onClick={() => {
                                 dispatch(addSelections({name: "Biodegradeable cornstarch mailer", img: biodegradeableCornstarchMailer, price: 2})); 
@@ -76,7 +86,10 @@ function PackageSelectionPage({location}) {
                             </Link>
                             <Link to={{
                                 pathname: "/price-selection",
-                                state: { counter: counter }
+                                state: { 
+                                    counter: counter,
+                                    previousSteps: true
+                                }
                             }} 
                                 onClick={() => {
                                 dispatch(addSelections({name: "Heavy duty box", img: heavyDutyBox, price: 4})); 
