@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../css/CommonStyles.css';
 import { addSelections } from '../store/orders/reducers';
 
-function SelectionCard({name, img, price, link}) {
+function SelectionCard({name, img, price, link, imgWidth}) {
 
   const dispatch = useDispatch();
   if (link !== ""){
@@ -14,11 +14,11 @@ function SelectionCard({name, img, price, link}) {
         //         dispatch(addSelections({name: name, img: img, price: price})); 
         //       }}>
             <button className="col-2 common-card white-card-green-border">
-                <p>{name}</p>
                 <div className="img-box">
-                  <img style={{height: "100%"}} src={img} alt={name}/>
+                  <img width={imgWidth} src={img} alt={name} style={{alignSelf: 'bottom', verticalAlign: 'flex-end', marginTop: 'auto'}}/>
                 </div>
-                <p>${price}</p>
+                <p className="card-text">{name}</p>
+                <p className="card-text">${price}</p>
             </button>
         // </Link>
       ); 

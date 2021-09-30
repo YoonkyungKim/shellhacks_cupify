@@ -11,9 +11,13 @@ import cupifyBrand from '../img/cupify-brand-cup.png';
 import plastic from '../img/plastic-cup.png';
 import TeaSet from '../img/tea-set.png';
 import Logo from '../img/logo-horizontal-white.png';
+import Star from '../img/star-icon.png';
+import MoneyBag from '../img/money-bag-icon.png';
 
 function ProductSelectionPage() {
-    const timeRemained = useSelector(state => state.reducer[0].timeRemained);
+    // const timeRemained = useSelector(state => state.reducer[0].timeRemained);
+    const rating = useSelector(state => state.reducer[0].thisRoundRating);
+    const money = useSelector(state => state.reducer[0].totalMoney);
     const [counter, setCounter] = useState(20);
     const dispatch = useDispatch();
     
@@ -38,21 +42,24 @@ function ProductSelectionPage() {
 
     return (
         <div className="container game-step-box background-img">
-            <div className="row">
-                <div className="col-2">
+            <div className="row status-bar">
+                <div className="col-5">
                     <img src={Logo} alt="Cupify logo" height="50px" />
                 </div>
                 {/* <Timer timeRemained={timeRemained}/> */}
-                <div className="col-6">
+                <div className="col-5">
                     <div className="counter-container">
                         <h3 style={{verticalAlign: "middle", display: "table-cell"}}>{counter >= 10 ? "00:" + counter : "00:0" + counter}</h3>
                     </div>
                 </div>
+                <div className="col-2 status-bar-right">
+                    <h3 className="font-white inline"><img className="status-icon" src={Star} alt="Star icon" height="30px"/>{rating}</h3>
+                    <h3 className="font-white"><img className="status-icon" src={MoneyBag} alt="Money bag icon" height="30px"/>{money}</h3>
+                </div>
             </div>
-            <h2 className="game-step-title" style={{color: "#ffffff"}}>Choose a cup you want to sell</h2>
+            <h2 className="game-step-title font-white">Choose a cup you want to sell</h2>
 
             <div className="card-container">
-                <div>
                     <Link to={{
                             pathname: "/package-selection",
                             state: { counter: counter }
@@ -64,7 +71,7 @@ function ProductSelectionPage() {
                             name="Plastic"
                             img={plastic}
                             price={2}
-                            // link="/package-selection"
+                            imgWidth="120px"
                         />
                     </Link>
                     <Link to={{
@@ -78,7 +85,7 @@ function ProductSelectionPage() {
                             name="Reusable"
                             img={ReusableCup}
                             price={2}
-                            // link="/package-selection"
+                            imgWidth="87px"
                         />
                     </Link>
                     <Link to={{
@@ -92,7 +99,7 @@ function ProductSelectionPage() {
                             name="Cupify cup"
                             img={cupifyBrand}
                             price={10}
-                            // link="/package-selection"
+                            imgWidth="100px"
                         />
                     </Link>
                     <Link to={{
@@ -106,7 +113,7 @@ function ProductSelectionPage() {
                             name="Glass"
                             img={Glass}
                             price={12}
-                            // link="/package-selection"
+                            imgWidth="85px"
                         />
                     </Link>
                     <Link to={{
@@ -120,10 +127,9 @@ function ProductSelectionPage() {
                             name="Teacup sets"
                             img={TeaSet}
                             price={15}
-                            // link="/package-selection"
+                            imgWidth="190px"
                         />
                     </Link>
-                </div>
             </div>
         </div>
     );
