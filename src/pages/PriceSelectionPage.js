@@ -62,14 +62,14 @@ function PriceSelectionPage({location}) {
         return () => clearInterval(timer);
     }, [counter]);
 
-    // if (counter <= 0){
-    //     return (
-    //       <Redirect to={{
-    //         pathname: "/order-review",
-    //         state: { orderCompleted: false, previousSteps: true }
-    //       }}/>
-    //     )
-    // } 
+    if (counter <= 0){
+        return (
+          <Redirect to={{
+            pathname: "/order-review",
+            state: { orderCompleted: false, previousSteps: true }
+          }}/>
+        )
+    } 
 
         if (selectedCup && selectedPackage){
             return (       

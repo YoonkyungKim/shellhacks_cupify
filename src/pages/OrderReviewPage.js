@@ -109,7 +109,7 @@ function OrderReviewPage({location}) {
                         <Header />
                         <div className="container">
                             <h1>Order Review [{orderNum} /10]</h1>
-                            <p>Order failed.</p>
+                            <p>Order failed. Make sure to complete the order within 20 seconds.</p>
                             <Link to={{
                                     pathname: `${orderNum === 10 ? "/game-result" : "/cup-selection"}`,
                                 }}
