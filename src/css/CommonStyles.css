@@ -8,6 +8,11 @@ html body {
     padding: 0;
 }
 
+#main {
+    height: 100vh;
+    padding: 0px 24px;
+}
+
 .section {
     margin-bottom: 50px;
 }
@@ -24,14 +29,16 @@ html, body, .shipping-img, .background-img {
     background-image: url(../img/parachute-cupify-padded-mailer.png);
     /* no-repeat center center fixed */
     /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background-position: center;
+    background-repeat: no-repeat; */
+    /* background-size: cover; */
 }
 
 .background-img {
     background-image: url(../img/background.png);
     max-width: 100% !important;
+    max-height: 100% !important;
+    background-color: #5e8e3e;
 }
 
 h2 {
@@ -52,12 +59,21 @@ h4 {
     line-height: 1.4em !important;
 }
 
+.h3-vertical-center {
+    vertical-align: middle;
+    display: table-cell;
+}
+
 .font-white {
     color: #ffffff;
 }
 
 .inline {
     display: inline;
+}
+
+.text-align-center {
+    text-align: center;
 }
 
 .start-countdown-font {
@@ -70,7 +86,6 @@ h4 {
 }
 
 .status-bar-right {
-    /* margin-left: 5%; */
     text-align: right;
 }
 
@@ -100,13 +115,18 @@ h4 {
     text-align: center;
 }
 
+.center-card-container {
+    text-align: center;
+}
+
 .card-container {
     text-align: center;
 }
 
 .common-card {
-    height: 300px;
-    padding: 2rem;
+    height: 250px;
+    width: 200px;
+    /* padding: 2rem; */
     margin-right: 18px;
     border-radius: 0.5em;
     text-align: center;
@@ -118,9 +138,14 @@ h4 {
 .card-text {
     text-decoration: none !important;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 500;
     margin-bottom: 3px;
+}
+
+.card-text-align {
+    align-self: flex-end;
+    margin: 0 auto;
 }
 
 .price-card {
@@ -132,11 +157,11 @@ h4 {
     text-align: center;
 }
 
-.white-card {
+.white-card-dark-green-border {
     display: inline;
-    color: #111111;
-    background-color: #ffffff;
-    border: 7px solid #111111;
+    color: #5e8e3e;
+    background-color: #ecfeca;
+    border: 7px solid #5e8e3e;
 }
 
 .white-card-grey-border {
@@ -197,8 +222,12 @@ h4 {
     border: 1.5px solid #111111;
 }
 
-.img-box {
-    height: 200px;
+.order-review-btn {
+    display: block;
+    margin: 0 auto;
+}
+
+.card-img-box {
     margin: 0 auto;
     align-items:center;
     justify-content:center;
@@ -206,6 +235,11 @@ h4 {
     width: 80%;
     display: table;
     /* overflow: hidden; */
+}
+
+.card-text-box {
+    height: 70px;
+    display: flex;
 }
 
 .white-text {
@@ -230,13 +264,31 @@ h4 {
     /* vertical-align: center; */
     position: relative;
 }
-/* 
-.counter-container h3 {
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-  } */
+
+.order-review-container {
+    color: #22343D;
+    background-color: #ffffff;
+    border-radius: 5rem;
+    text-align: center; 
+    display: table;
+    position: relative;
+    margin: 20px auto;
+}
+
+.order-review-profit-container {
+    width: 460px;
+}
+
+.order-review-time-container {
+    width: 220px;
+    display: inline-table !important;
+    margin-right: 20px;
+}
+
+.order-review-rating-container {
+    width: 240px;
+    display: inline-table !important;
+}
 
 .game-steps-inside-container {
     padding: 0 19%;
@@ -246,6 +298,12 @@ h4 {
     text-align: left;
     padding-left: 10% !important;
     margin-bottom: 80px;
+}
+
+.card-img {
+    align-self: bottom;
+    vertical-align: flex-end;
+    margin-top: auto;
 }
 
 /* .game-step-img-box {

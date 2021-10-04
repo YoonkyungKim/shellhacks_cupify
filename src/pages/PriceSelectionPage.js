@@ -3,6 +3,9 @@ import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { incrementOrder, updateThisRoundRating } from '../store/orders/reducers';
 import SelectionCard from '../components/SelectionCard';
+import Header from '../components/Header';
+import GameStatus from '../components/GameStatus';
+import PriceSelectionCard from '../components/PriceSelectionCard';
 import '../css/CommonStyles.css';
 
 function PriceSelectionPage({location}) {
@@ -59,78 +62,90 @@ function PriceSelectionPage({location}) {
         return () => clearInterval(timer);
     }, [counter]);
 
-    if (counter <= 0){
-        return (
-          <Redirect to={{
-            pathname: "/order-review",
-            state: { orderCompleted: false, previousSteps: true }
-          }}/>
-        )
-    } 
+    // if (counter <= 0){
+    //     return (
+    //       <Redirect to={{
+    //         pathname: "/order-review",
+    //         state: { orderCompleted: false, previousSteps: true }
+    //       }}/>
+    //     )
+    // } 
 
         if (selectedCup && selectedPackage){
-            return (
-                <div className="container game-step-box">
-                    <div className="counter-container">
-                        <h3 style={{verticalAlign: "middle", display: "table-cell"}}>{counter >= 10 ? "00:" + counter : "00:0" + counter}</h3>
+            return (       
+                <div className="container game-step-box background-img">
+                    <div className="row status-bar">
+                        <Header game={true}/>
+                        <div className="col-5">
+                            <div className="counter-container">
+                                <h3 className="h3-vertical-center">{counter >= 10 ? "00:" + counter : "00:0" + counter}</h3>
+                            </div>
+                        </div>
+                        <GameStatus />
                     </div>
+
                     <div className="card-container">
                         <SelectionCard 
                             name={selectedCup.name}
                             img={selectedCup.img}
                             price={selectedCup.price}
-                            link=""
+                            previouslySelected={true}
                         />
                         <SelectionCard 
                             name={selectedPackage.name}
                             img={selectedPackage.img}
                             price={selectedPackage.price}
-                            link=""
+                            previouslySelected={true}
                         />
                     </div>
-                    <h2 className="game-step-title">Choose the price for your cup</h2>
-    
-                    <div>
-                        <button 
-                            className={`${pressed === 1 ? "green-card-pressed" : "white-card-grey-border"} price-card`}
+                    <h2 className="game-step-title font-white">Choose the price for your cup</h2>
+                    <div style={{textAlign: "center"}}>
+                        <PriceSelectionCard 
+                            id={1}
+                            pressed={pressed}
+                            price={Math.round((selectedCup.price + selectedPackage.price) * 1.5)}
                             onClick={()=>{
                                 setFinalPrice(Math.round((selectedCup.price + selectedPackage.price) * 1.5));
                                 setPrice("cheap");
                                 setPressed(1);
-                            }}>
-                            ${Math.round((selectedCup.price + selectedPackage.price) * 1.5)}
-                        </button>
-                    </div>
-    
-                    <div>
-                        <button className={`${pressed === 2 ? "green-card-pressed" : "white-card-grey-border"} price-card`}
+                            }}
+                        />
+
+                        <PriceSelectionCard 
+                            id={2}
+                            pressed={pressed}
+                            price={Math.round((selectedCup.price + selectedPackage.price) * 2)}
                             onClick={()=>{
                                 setFinalPrice(Math.round((selectedCup.price + selectedPackage.price) * 2));
                                 setPrice("moderate");
                                 setPressed(2);
-                            }}>
-                            ${Math.round((selectedCup.price + selectedPackage.price) * 2)}
-                        </button>
-                    </div>
-    
-                    <div>
-                        <button className={`${pressed === 3 ? "green-card-pressed" : "white-card-grey-border"} price-card`}
+                            }}
+                        />
+
+                        <PriceSelectionCard 
+                            id={3}
+                            pressed={pressed}
+                            price={Math.round((selectedCup.price + selectedPackage.price) * 3)}
                             onClick={()=>{
                                 setFinalPrice(Math.round((selectedCup.price + selectedPackage.price) * 3));
                                 setPrice("expensive");
                                 setPressed(3);
-                        }}>
-                            ${Math.round((selectedCup.price + selectedPackage.price) * 3)}
-                        </button>
+                            }}
+                        />
+                    
+                        <Link to={{
+                                pathname: "/order-review",
+                                state: { 
+                                    finalPrice: finalPrice, 
+                                    orderCompleted: true, 
+                                    price: price, 
+                                    counter: counter 
+                                }
+                            }}
+                            onClick={() => dispatch(incrementOrder(orderNum))}>
+                            <button className="common-btn green-btn">Send shipping</button>
+                        </Link>
                     </div>
-    
-                    <Link to={{
-                            pathname: "/order-review",
-                            state: { finalPrice: finalPrice, orderCompleted: true, price: price }
-                        }}
-                          onClick={() => dispatch(incrementOrder(orderNum))}>
-                        <button className="common-btn green-btn">Send shipping</button>
-                    </Link>
                 </div>
             );
         } else {
