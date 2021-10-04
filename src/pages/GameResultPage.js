@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { resetOrderNum, resetRatings } from '../store/orders/reducers';
+import { resetMoney, resetOrderNum, resetRatings } from '../store/orders/reducers';
 import '../css/CommonStyles.css';
 import Header from '../components/Header';
 
@@ -27,6 +27,7 @@ function GameResultPage({location}) {
                     <Link to="/ranking"
                         onClick={() => {
                             dispatch(resetRatings());
+                            dispatch(resetMoney());
                         }}>
                         <button className="common-btn green-btn">Ranking</button>
                     </Link>
@@ -49,6 +50,7 @@ function GameResultPage({location}) {
                     <Link to="/start-countdown"
                         onClick={() => {
                             dispatch(resetRatings());
+                            dispatch(resetMoney());
                         }}>
                         <button className="common-btn green-btn">Try again</button>
                     </Link>

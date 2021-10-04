@@ -9,8 +9,9 @@ const ADD_RATING = 'ADD_RATING';
 const RESET_RATINGS = 'RESET_RATINGS';
 const RESET_ORDER_NUM = 'RESET_ORDER_NUM';
 const RESET_SELECTIONS = 'RESET_SELECTIONS';
+const RESET_MONEY = 'RESET_MONEY';
 const RESET_TIME_REMAINED = 'RESET_TIME_REMAINED';
-const UPDATE_TIME_REMAINED = 'UPDATE_TIME_REMAINED';
+// const UPDATE_TIME_REMAINED = 'UPDATE_TIME_REMAINED';
 
 // window.localStorage.clear();
 
@@ -73,12 +74,18 @@ export function resetSelections() {
     }
 }
 
-export function updateTimeRemained(timeSpent) {
+export function resetMoney() {
     return {
-      type: UPDATE_TIME_REMAINED,
-      timeSpent
+      type: RESET_MONEY,
     }
 }
+
+// export function updateTimeRemained(timeSpent) {
+//     return {
+//       type: UPDATE_TIME_REMAINED,
+//       timeSpent
+//     }
+// }
 
 export function resetTimeRemained() {
     return {
@@ -149,14 +156,17 @@ function reducer(state=defaultState, action) {
         case RESET_SELECTIONS:
             const ObjWithNoSelections = {...state[0], selections: []};
             return [ObjWithNoSelections];
+        case RESET_MONEY:
+            const ObjWithInitialMoney = {...state[0], totalMoney: 80};
+            return [ObjWithInitialMoney];
         case RESET_TIME_REMAINED:
             const ObjWithInitialTime = {...state[0], timeRemained: 20};
             return [ObjWithInitialTime];
-        case UPDATE_TIME_REMAINED:
-            console.log(state[0].timeRemained);
-            console.log("action.changedRating" + action.timeSpent);
-            const ObjWithUpdatedTime = {...state[0], timeRemained: state[0].timeRemained - action.timeSpent};
-            return [ObjWithUpdatedTime];
+        // case UPDATE_TIME_REMAINED:
+        //     console.log(state[0].timeRemained);
+        //     console.log("action.changedRating" + action.timeSpent);
+        //     const ObjWithUpdatedTime = {...state[0], timeRemained: state[0].timeRemained - action.timeSpent};
+        //     return [ObjWithUpdatedTime];
         default:
             console.log(state[0].orderNum);
             return state;

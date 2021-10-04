@@ -1,4 +1,5 @@
-body {
+.background-color {
+    height: 100%;
     background-color: black;
 }
 
