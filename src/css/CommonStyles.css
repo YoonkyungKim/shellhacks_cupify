@@ -121,6 +121,7 @@ h4 {
 
 .card-container {
     text-align: center;
+    vertical-align: middle;
 }
 
 .common-card {
@@ -178,6 +179,13 @@ h4 {
     border: 7px solid #96bf47;
 }
 
+.white-card-no-border {
+    display: inline;
+    color: #333333;
+    background-color: #ffffff;
+    border: none;
+}
+
 .green-card {
     color: #96bf47;
     background-color: #ecfeca;
@@ -225,6 +233,12 @@ h4 {
 .order-review-btn {
     display: block;
     margin: 0 auto;
+}
+
+.intro-btn {
+    margin-top: 30px;
+    border-radius: 3em; 
+    width: 300px;
 }
 
 .card-img-box {
@@ -304,6 +318,50 @@ h4 {
     align-self: bottom;
     vertical-align: flex-end;
     margin-top: auto;
+}
+
+.table-div {
+    margin: 30px auto;
+    background-color: #ffffff;
+    border-radius: 10em; 
+    width: 30px; 
+    height: 30px;
+    text-align: center; 
+    display: table; 
+    vertical-align: middle;
+}
+
+.table-cell-text{
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.intro-card {
+    height: 300px !important;
+}
+
+.intro-table-div {
+    margin: 15px auto;
+    display: table; 
+}
+
+.intro-card-num-circle {
+    background-color: #5E8E3E;
+    width: 50px;
+    height: 50px !important;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+}
+
+.intro-card-text-box {
+    height: 100px;
+    display: flex;
+}
+
+.intro-card-text-align {
+    align-self: flex-start;
+    margin: 0 auto;
 }
 
 /* .game-step-img-box {
