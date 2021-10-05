@@ -23,11 +23,11 @@ function WelcomePage() {
                     <p className="desc" style={{fontSize: "1.15em"}}>Cupify is an online simulator game to educate new merchants
                     on e-commerce, in a fun and interactive way.</p>
                     <div style={{marginTop: "50px"}}>
-                        <Link to="/start-countdown">
+                        <Link to="/intro">
                             <button className="common-btn green-btn">Get started</button>
                         </Link>
                         <a href="https://www.youtube.com/watch?v=VN414I2-9Gk">
-                            <button className="common-btn white-btn-green-border">Watch the Video</button>
+                            <button className="common-btn white-btn-green-border">Watch the video</button>
                         </a>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ function WelcomePage() {
                             img={Third}
                             description="Provide a fast shipping"
                         />
-                    <Link to="/start-countdown">
+                    <Link to="/intro">
                         <button style={{backgroundColor: "#22343D", paddingRight: "25px", borderColor: "#22343D", marginBottom: "80px"}}className="common-btn black-btn">Play now</button>
                     </Link>
                 </div>

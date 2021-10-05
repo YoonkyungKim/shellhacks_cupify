@@ -9,6 +9,7 @@ import OrderReviewPage from "./pages/OrderReviewPage";
 import GameResultPage from "./pages/GameResultPage";
 import RankingPage from "./pages/RankingPage";
 import ShippingPage from "./pages/ShippingPage";
+import IntroPage from "./pages/IntroPage";
 import "./css/CommonStyles.css";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path='/game-result' component={GameResultPage}/>
         <Route path='/ranking' component={RankingPage}/>
         <Route path='/shipping' component={ShippingPage}/>
+        <Route path='/intro' component={IntroPage}/>
       </Switch>
     </div>
   );
